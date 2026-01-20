@@ -72,8 +72,8 @@ class Map
     };
     
     Entry* m_map;
-    int m_maxSize;
     int m_size;
+    int m_maxSize;
 };
 
 #endif
