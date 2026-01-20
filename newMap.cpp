@@ -178,11 +178,13 @@ void Map::swap(Map& other)
     other.m_size = tempSize;
     
     // swap content
-    for (int i = 0; i < DEFAULT_MAX_ITEMS; i++)
-    {
-        Entry tempEntry = m_map[i];
-        m_map[i] = other.m_map[i];
-        other.m_map[i] = tempEntry;
-    }
+    Map temp = other;
+    other = *this;
+    *this = temp;
+    
+    // swap max size
+    int tempMaxSize = other.m_maxSize;
+    other.m_maxSize = m_maxSize;
+    m_maxSize = tempMaxSize;
 }
 
